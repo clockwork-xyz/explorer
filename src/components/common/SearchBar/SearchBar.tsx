@@ -62,7 +62,7 @@ export const SearchBar: FC<SearchBarProps> = ({}: SearchBarProps) => {
           className="px-3 py-2 w-full bg-transparent focus:outline-none text-[#979797] flex-1"
           data-testid="search-thread-input"
         />
-        <button type="submit" className="px-4 py-2">
+        <button type="submit" className="px-4 py-2" data-cy="search-btn">
           <SearchIcon className="h-5 w-5 text-[#979797]" />
         </button>
       </form>

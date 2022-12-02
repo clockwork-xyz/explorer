@@ -1,4 +1,4 @@
-import { ArrowUpIcon, ExternalLinkIcon } from "@heroicons/react/outline";
+import { ArrowUpIcon } from "@heroicons/react/outline";
 import { PublicKey } from "@solana/web3.js";
 import Link from "next/link";
 import { CopyButton } from "../CopyButton";

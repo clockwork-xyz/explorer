@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { FC, FormEvent, ReactNode, useState } from "react";
+import { FC, ReactNode } from "react";
 import Header from "../common/Header";
 import { Footer } from "components/common/Footer/Footer";
 import { SearchBar } from "components/common/SearchBar";

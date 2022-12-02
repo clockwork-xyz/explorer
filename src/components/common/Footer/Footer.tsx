@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { ThemeSwitch } from "../ThemeSwitch";
 
 export const Footer: FC = () => {
   return (

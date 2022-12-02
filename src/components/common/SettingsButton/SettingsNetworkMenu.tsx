@@ -46,6 +46,11 @@ export const SettingsNetworkMenu: FC<SettingsNetworkMenuProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endpoint]);
 
+  const handleCustomRPC = (endpoint: string) => {
+    setCluster(CUSTOM_RPC_CLUSTER);
+    setCustomEndpoint(endpoint);
+  };
+
   return (
     <div
       className={`${
@@ -83,7 +88,7 @@ export const SettingsNetworkMenu: FC<SettingsNetworkMenuProps> = ({
                 ? "bg-[#F2F3F3] dark:bg-[#393939]"
                 : "bg-white dark:bg-[#2C2B2B]"
             } hover:bg-[#F2F3F3] dark:hover:bg-[#393939] p-2 px-8 cursor-pointer`}
-            onClick={() => setCustomEndpoint(endpoint)}
+            onClick={() => handleCustomRPC(endpoint)}
           >
             <div>
               <h3 className="text-[#0E1114] text-lg dark:text-[#FFFFFF] font-medium font-['Inter'] mb-1">
@@ -95,6 +100,7 @@ export const SettingsNetworkMenu: FC<SettingsNetworkMenuProps> = ({
                   value={endpoint}
                   onChange={(e) => setEndpoint(e.target.value)}
                   className="border border-[#979797] text-[#0E1114] text-sm dark:text-white p-2 px-3 rounded-lg my-2 w-full bg-[#E7EAED] dark:bg-[#393939] focus:outline-none"
+                  data-testid="custom-rpc-input"
                 />
               ) : null}
             </div>

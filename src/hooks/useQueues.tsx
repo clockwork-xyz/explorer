@@ -1,18 +1,20 @@
 import { useCrankProgram } from "contexts/CrankProgramProvider";
 import { useCallback, useEffect, useState } from "react";
+import { useQueuesSWR } from "./useQueuesSWR";
 import { Queue } from "models/types";
 
 export type QueuesHookState = {
   data: Queue[];
   error?: Error;
   loading?: boolean;
-  refetch: () => void;
+  refetch?: () => void;
 };
 
 export const useQueues = () => {
   const program = useCrankProgram();
+  const { data, error } = useQueuesSWR(program);
 
-  const fetchQueuesCallback = useCallback(async () => {
+  /*const fetchQueuesCallback = useCallback(async () => {
     setQueuesState((prev) => ({ ...prev, loading: true, error: undefined }));
     try {
       const queues = await program.account.queue.all();
@@ -43,7 +45,11 @@ export const useQueues = () => {
 
   useEffect(() => {
     fetchQueuesCallback();
-  }, [program]);
+  }, [program]);*/
 
-  return queuesState;
+  return {
+    data,
+    loading: data === null,
+    error,
+  };
 };

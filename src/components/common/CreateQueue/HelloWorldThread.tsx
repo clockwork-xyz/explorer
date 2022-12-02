@@ -15,7 +15,7 @@ import {
 import { useAnchorProvider } from "contexts/AnchorProvider";
 
 const SEED_QUEUE = "thread";
-export const CreateQueue = () => {
+export const HelloWorldThread = () => {
   const anchorProvider = useAnchorProvider();
   const { publicKey } = useWallet();
 

@@ -1,7 +1,3 @@
-import {
-  ClipboardCopyIcon,
-  ClipboardCheckIcon,
-} from "@heroicons/react/outline";
 import { useState } from "react";
 import { CopyButton } from "../CopyButton";
 

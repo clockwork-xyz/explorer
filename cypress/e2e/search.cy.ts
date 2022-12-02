@@ -1,5 +1,5 @@
 describe("Search", () => {
-  it("should search a thread", () => {
+  it("should search a thread or an account by address", () => {
     // start from the first page
     cy.visit("http://localhost:3000/");
 
@@ -16,17 +16,16 @@ describe("Search", () => {
     cy.get('[data-cy="network-select-btn"]').click();
 
     // find search input box and type
-    cy.get('[data-testid="filter-by-input"]').clear();
-    cy.get('[data-testid="filter-by-input"]').type(
-      "HbeMiiNcf4nrj8v3i316kNKXr6qYdBk2dbSKDxWvGw6m"
-    );
+    cy.get('[data-testid="search-thread-input"]').clear();
 
-    // page should show only 1 thread
-    cy.get("p#page_number").contains("1 of 1");
+    const threadAddress = "HbeMiiNcf4nrj8v3i316kNKXr6qYdBk2dbSKDxWvGw6m";
+    cy.get('[data-testid="search-thread-input"]').type(threadAddress);
+    cy.wait(3000);
 
-    // page should show more than 1 thread
-    cy.get('[data-testid="filter-by-input"]').clear();
-    cy.get("p#page_number").not("1 of 1");
+    cy.get('[data-cy="search-btn"]').click();
+
+    // The new url should include "/address/HbeMiiNcf4nrj8v3i316kNKXr6qYdBk2dbSKDxWvGw6m"
+    cy.url().should("include", `/address/${threadAddress}`);
   });
 });
 

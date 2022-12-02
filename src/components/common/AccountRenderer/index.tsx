@@ -2,7 +2,7 @@ import { BN, web3 } from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import { useSearch } from "contexts/SearchContext";
 import { useSolana } from "contexts/SolanaContext";
-import { FC, ReactElement, useMemo } from "react";
+import { FC, useMemo } from "react";
 import { getExplorerAccountLink } from "utils/general";
 import { DataTable, DataTableRow, DataTableRowExpandable } from "../DataTable";
 import { DataTableRowAccount } from "../DataTable/DataTableRowAccount";

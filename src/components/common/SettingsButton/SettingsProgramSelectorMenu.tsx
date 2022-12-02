@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useClockworks } from "contexts/ClockworksContext";
 import { CLOCKWORKS_PROGRAMS } from "anchor/addresses";
-import { SettingsMenuLabel } from "./SettingsMenuLabel";
 
 export const SettingsProgramSelectorMenu = () => {
   const { programID, setProgramID } = useClockworks();
@@ -31,7 +30,10 @@ export const SettingsProgramSelectorMenu = () => {
       </h2>
       {!isChanging ? (
         <div className="flex items-center space-x-2.5">
-          <p className="text-sm text-[#979797] dark:text-white font-normal">
+          <p
+            className="text-sm text-[#979797] dark:text-white font-normal"
+            data-testid="selected-program-label"
+          >
             {CLOCKWORKS_PROGRAMS[programID.toString()]
               ? CLOCKWORKS_PROGRAMS[programID.toString()]
               : `${programID.toString().slice(0, 18)}...`}
@@ -39,6 +41,7 @@ export const SettingsProgramSelectorMenu = () => {
           <button
             className="text-sm text-[#0E1114] dark:text-white font-semibold"
             onClick={() => setIsChanging(true)}
+            data-cy="program-change-btn"
           >
             Change
           </button>
@@ -52,6 +55,7 @@ export const SettingsProgramSelectorMenu = () => {
             placeholder="Thread Address"
             className="px-4 py-2 w-full text-sm font-mono text-[#0E1114] dark:text-white rounded-lg bg-transparent border border-[#BFBFBF
             ] dark:border-[#626262] focus:outline-none"
+            data-testid="custom-program-input"
           />
           {Object.entries(CLOCKWORKS_PROGRAMS).map(
             ([programID, programLabel]) => (
@@ -59,6 +63,7 @@ export const SettingsProgramSelectorMenu = () => {
                 key={programID}
                 className="bg-[#4F4C4C] dark:bg-[#393939] dark:hover:bg-[#4F4C4C] transition-colors py-3 px-4 rounded-lg flex flex-col cursor-pointer"
                 onClick={() => selectProgram(programID)}
+                data-testid={programLabel}
               >
                 <p className="text-sm font-medium font-sans text-white dark:text-white">
                   {programLabel}
@@ -72,6 +77,7 @@ export const SettingsProgramSelectorMenu = () => {
           <button
             type="submit"
             className="px-4 py-2 w-full text-black dark:text-white border border-[#0E1114] dark:border-white"
+            data-cy="custom-program-confirm-btn"
           >
             Confirm
           </button>
