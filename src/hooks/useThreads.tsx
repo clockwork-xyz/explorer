@@ -1,4 +1,4 @@
-import { useClockworkProgram } from "contexts/ThreadProgramProvider";
+import { useThreadProgram } from "contexts/ClockworkProgramsContext";
 import { useCallback, useEffect, useState } from "react";
 import { Thread } from "@clockwork-xyz/sdk";
 
@@ -10,7 +10,7 @@ export type ThreadsHookState = {
 };
 
 export const useThreads = () => {
-  const program = useClockworkProgram();
+  const program = useThreadProgram();
 
   const fetchThreadsCallback = useCallback(async () => {
     setThreadsState((prev) => ({ ...prev, data: [], loading: true, error: undefined }));

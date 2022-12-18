@@ -1,14 +1,12 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { CogIcon } from "@heroicons/react/outline";
 import {
-  CLUSTERS,
-  CUSTOM_RPC_CLUSTER,
   useSolana,
 } from "contexts/SolanaContext";
 import { useOutsideAlerter } from "hooks/useOutsideAlerter";
 import { toast } from "react-toastify";
 import { SettingsNetworkMenu } from "./SettingsNetworkMenu";
-import { SettingsProgramSelectorMenu } from "./SettingsProgramSelectorMenu";
+// import { SettingsProgramSelectorMenu } from "./SettingsProgramSelectorMenu";
 
 type SettingButtonProps = {};
 

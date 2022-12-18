@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import { useClockworks } from "contexts/ClockworksContext";
+import { useClockworks } from "contexts/ClockworkProgramsContext";
 import { CLOCKWORKS_PROGRAMS } from "@clockwork-xyz/sdk";
 
 export const ProgramSelectorMenu = () => {

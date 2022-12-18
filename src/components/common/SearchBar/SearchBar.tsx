@@ -3,7 +3,7 @@ import { useClockworkProgram } from "contexts/ThreadProgramProvider";
 import { useAddressAll } from "hooks/useAddressAll";
 import { useRouter } from "next/router";
 import { FC, FormEvent, useState } from "react";
-import { useClockworks } from "contexts/ClockworksContext";
+import { useClockworks } from "contexts/ClockworkProgramsContext";
 import { useSearch } from "contexts/SearchContext";
 
 import * as anchor from "@project-serum/anchor";
