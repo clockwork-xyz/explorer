@@ -32,7 +32,7 @@
     "@solana/wallet-adapter-wallets": "^0.19.7",
     "@solana/web3.js": "^1.50.1",
     "@tailwindcss/typography": "^0.5.7",
-    "date-fns": "^2.29.2",
+    "date-fns": "^2.29.3",
     "immer": "^9.0.16",
     "lodash": "^4.17.21",
     "next": "^13.0.6",
