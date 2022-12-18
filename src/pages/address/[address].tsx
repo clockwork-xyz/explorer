@@ -67,12 +67,12 @@ export const AddressSignaturesTable = () => {
                             cluster.network
                           )}
                         >
-=                            <div className="flex items-center space-x-2">
-                              <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
-                                {signatureInfo.signature.slice(0, 45) + "..."}
-                              </p>
-                              {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
-                            </div>
+                          <div className="flex items-center space-x-2">
+                            <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
+                              {signatureInfo.signature.slice(0, 45) + "..."}
+                            </p>
+                            {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
+                          </div>
                         </Link>
                       </span>
                     </td>
@@ -89,12 +89,12 @@ export const AddressSignaturesTable = () => {
                             cluster.network
                           )}
                         >
-                            <div className="flex items-center space-x-2">
-                              <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
-                                {formatSlotNumber(signatureInfo.slot)}
-                              </p>
-                              {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
-                            </div>
+                          <div className="flex items-center space-x-2">
+                            <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
+                              {formatSlotNumber(signatureInfo.slot)}
+                            </p>
+                            {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
+                          </div>
                         </Link>
                       </span>
                     </td>
