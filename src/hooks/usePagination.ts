@@ -1,4 +1,3 @@
-import { Console } from "console";
 import { useEffect, useState } from "react";
 import { threadFilter } from "@clockwork-xyz/sdk";
 

@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 import { AccountInfo, PublicKey } from "@solana/web3.js";
 import { useConnection } from "@solana/wallet-adapter-react";
-import { useClockworkProgram } from "contexts/ThreadProgramProvider";
+import { useClockworkPrograms } from "contexts/ClockworkProgramsContext";
 import { Program } from "@project-serum/anchor";
-import { tryIntoPubkey } from "@clockwork-xyz/sdk"
+import { ClockworkProgram, tryIntoPubkey } from "@clockwork-xyz/sdk";
 
 export type AddressHookState = {
-  data?:  { accountInfo: AccountInfo<any>, account?: any, accountType: string },
+  data?: { accountInfo: AccountInfo<any>; account?: any; accountType: string };
   error?: Error;
   loading?: boolean;
 };
 
-export const tryDecode = (program: Program<any>, data: any) => {
+export const tryDecode = (program: ClockworkProgram, data: any) => {
   try {
     // get all account types in selected program
     const accountTypes = Object.keys(program.account);
@@ -33,9 +33,25 @@ export const tryDecode = (program: Program<any>, data: any) => {
   }
 };
 
+export const tryDecodeFromManyIdls = (
+  programs: ClockworkProgram[],
+  data: any
+) => {
+  for (let i = 0; i < programs.length; i++) {
+    const clockworkProgram = programs[i];
+    const decoded = tryDecode(clockworkProgram, data);
+
+    if (decoded.account) {
+      return decoded;
+    }
+  }
+  // doesn't match any idl account
+  return { account: undefined, accountType: "Account" };
+};
+
 export const useAddressAll = (address: string) => {
   const { connection } = useConnection();
-  const program = useClockworkProgram();
+  const programs = useClockworkPrograms();
 
   const [addresssState, setAddressState] = useState<AddressHookState>({
     data: undefined,
@@ -61,9 +77,13 @@ export const useAddressAll = (address: string) => {
       }));
       try {
         const publicKey = new PublicKey(address);
-        const accountInfo = await program.provider.connection.getAccountInfo(publicKey);
+        const accountInfo =
+          await programs[0].provider.connection.getAccountInfo(publicKey);
         if (accountInfo) {
-          const { account, accountType } = tryDecode(program, accountInfo.data);
+          const { account, accountType } = tryDecodeFromManyIdls(
+            programs,
+            accountInfo.data
+          );
           setAddressState((prev) => ({
             ...prev,
             data: { accountInfo, account, accountType },
@@ -109,14 +129,14 @@ export const useAddressAll = (address: string) => {
         }));
       }
     },
-    [program]
+    [programs]
   );
 
   useEffect(() => {
-    if (program && address?.length > 0) {
+    if (programs && address?.length > 0) {
       fetchAddressCallback(address);
     }
-  }, [program, address, fetchAddressCallback]);
+  }, [programs, address, fetchAddressCallback]);
 
   useEffect(() => {
     if (address?.length === 0) {

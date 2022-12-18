@@ -7,7 +7,7 @@ import {
   useSolana,
 } from "contexts/SolanaContext";
 import { toast } from "react-toastify";
-import { SettingsProgramSelectorMenu } from "./SettingsProgramSelectorMenu";
+// import { SettingsProgramSelectorMenu } from "./SettingsProgramSelectorMenu";
 
 type SettingsNetworkMenuProps = {
   open?: boolean;
@@ -106,10 +106,10 @@ export const SettingsNetworkMenu: FC<SettingsNetworkMenuProps> = ({
           </li>
         </ul>
       </div>
-      <div className="w-full flex px-6 pt-1 pb-2">
+      {/* <div className="w-full flex px-6 pt-1 pb-2">
         <div className="border-[#E7EAED] dark:border-[#BFBFBF] border-b flex-1" />
-      </div>
-      <SettingsProgramSelectorMenu />
+      </div> */}
+      {/* <SettingsProgramSelectorMenu /> */}
     </div>
   );
 };

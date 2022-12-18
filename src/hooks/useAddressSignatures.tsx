@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AccountInfo, ConfirmedSignatureInfo, PublicKey } from "@solana/web3.js";
 import { useConnection } from "@solana/wallet-adapter-react";
-import { useClockworkProgram } from "contexts/ThreadProgramProvider";
+import { useThreadProgram } from "contexts/ClockworkProgramsContext";
 import { Program } from "@project-serum/anchor";
 import { tryIntoPubkey } from "@clockwork-xyz/sdk"
 
@@ -13,7 +13,7 @@ export type AddressSignaturesHookState = {
 
 export const useAddressSignatures = (address: string) => {
   const { connection } = useConnection();
-  const program = useClockworkProgram();
+  const program = useThreadProgram();
 
   const [addresssState, setAddressState] = useState<AddressSignaturesHookState>({
     data: undefined,

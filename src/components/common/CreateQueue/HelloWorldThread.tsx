@@ -6,22 +6,21 @@ import uuid from "short-uuid";
 
 import { PrimaryButton } from "../Button";
 import { Input } from "../Input";
-import {
-  HELLO_CLOCKWORK_PROGRAM_ID,
-  CLOCKWORK_THREAD_PROGRAM_ID,
-  ThreadProgram,
-  ThreadProgramIDL,
-  HelloClockwork,
-  HelloClockworkIDL,
-} from "@clockwork-xyz/sdk";
+import { CLOCKWORK_THREAD_PROGRAM_ID } from "@clockwork-xyz/sdk";
 import { useAnchorProvider } from "contexts/AnchorProvider";
+import {
+  useHelloClockworkProgram,
+  useThreadProgram,
+} from "contexts/ClockworkProgramsContext";
 
 const SEED_QUEUE = "thread";
 export const HelloWorldThread = () => {
   const anchorProvider = useAnchorProvider();
+  const threadProgram = useThreadProgram();
+  const helloClockworkProgram = useHelloClockworkProgram();
   const { publicKey } = useWallet();
 
-  const [queueMsg, setQueueMsg] = useState("World!");
+  const [queueMsg, setQueueMsg] = useState("Hello World!");
 
   const handleCreateQueue = async () => {
     if (!anchorProvider) return;
@@ -29,15 +28,6 @@ export const HelloWorldThread = () => {
       toast("Connect your wallet and try again!");
       return;
     }
-
-    const helloworldProgram: anchor.Program<HelloClockwork> =
-      new anchor.Program(HelloClockworkIDL, HELLO_CLOCKWORK_PROGRAM_ID, anchorProvider);
-
-    const threadProgram: anchor.Program<ThreadProgram> = new anchor.Program(
-      ThreadProgramIDL,
-      CLOCKWORK_THREAD_PROGRAM_ID,
-      anchorProvider
-    );
 
     const threadName = uuid().new();
     const [pda] = await anchor.web3.PublicKey.findProgramAddress(
@@ -49,7 +39,7 @@ export const HelloWorldThread = () => {
       CLOCKWORK_THREAD_PROGRAM_ID
     );
 
-    const helloworldInstruction = await helloworldProgram.methods
+    const helloworldInstruction = await helloClockworkProgram.methods
       .helloWorld(queueMsg)
       .accounts({ helloThread: publicKey })
       .instruction();
@@ -59,7 +49,7 @@ export const HelloWorldThread = () => {
         .threadCreate(
           threadName,
           {
-            programId: helloworldProgram.programId,
+            programId: helloClockworkProgram.programId,
             accounts: [{ pubkey: pda, isSigner: true, isWritable: true }],
             data: helloworldInstruction.data,
           },
