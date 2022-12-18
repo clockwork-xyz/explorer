@@ -1,9 +1,6 @@
 import { SearchIcon } from "@heroicons/react/outline";
-import { useClockworkProgram } from "contexts/ThreadProgramProvider";
-import { useAddressAll } from "hooks/useAddressAll";
 import { useRouter } from "next/router";
-import { FC, FormEvent, useState } from "react";
-import { useClockworks } from "contexts/ClockworkProgramsContext";
+import { FC, FormEvent } from "react";
 import { useSearch } from "contexts/SearchContext";
 
 import * as anchor from "@project-serum/anchor";
