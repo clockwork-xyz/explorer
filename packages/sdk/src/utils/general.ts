@@ -88,5 +88,5 @@ export const tryIsAccounts = (value: any) => {
 };
 
 export const shortenAddress = (account: string, index: number = 6) => {
-  return `${account.slice(0, index)}...`;
+  return `${account.slice(0, index)}...${account.slice(-index)}`;
 };

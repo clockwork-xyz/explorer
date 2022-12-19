@@ -3,7 +3,7 @@ import { FC } from "react";
 export const Footer: FC = () => {
   return (
     <footer className="py-5 px-4 flex items-center justify-center m-auto  w-full max-w-5xl">
-      <div className="flex border-t dark:border-[#4F4F4F] w-full pt-5">
+      <div className="flex border-t dark:border-[#4F4F4F] w-full py-5">
         <a
           href="https://github.com/clockwork-xyz/explorer"
           target="_blank"

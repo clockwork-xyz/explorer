@@ -18,7 +18,7 @@ export const AccountRenderer = () => {
   const { data, address } = useSearch();
 
   if (!data)
-    return <div className="py-6 rounded-lg flex flex-col space-y-6"></div>;
+    return <div className=""></div>;
 
   console.log("data", data);
   return (

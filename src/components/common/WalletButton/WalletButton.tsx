@@ -30,7 +30,7 @@ export const WalletButton: FC<WalletButtonProps> = ({
               }
             : () => setVisible(!visible)
         }
-        className="bg-black-100 dark:bg-white text-sm dark:text-black-100 text-white align-middle justify-center"
+        className="text-[#0E1114] dark:text-white text-sm align-middle justify-center"
       >
         <div className="md:block hidden px-10 py-3">
           {wallet.connected
