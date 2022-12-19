@@ -55,7 +55,7 @@ export const ThreadsTable = () => {
       <div className="flex flex-1 flex-col">
         <div className="flex w-full">
           <div className="font-normal text-[#0E1114] dark:text-white text-[14px] leading-relaxed tracking-wide flex w-full py-4 px-4  border-b border-t border-1 border-[#E7EAED] dark:border-[#4F4F4F]">
-            <div className="w-full max-w-[120px] md:max-w-[240px] lg:max-w-[300px] pr-4">
+            <div className="w-full max-w-[160px] md:max-w-[240px] lg:max-w-[300px] pr-4">
               Name
             </div>
             <div className="flex-1">Address</div>

@@ -19,7 +19,7 @@ export const ThreadTableRow = ({ thread }: { thread: Thread }) => {
       }}
     >
       <div className="cursor-pointer flex w-full leading-relaxed text-sm text-[#0E1114] dark:text-white py-4 px-4 border-b border-1 border-[#E7EAED] dark:border-[#4F4F4F] hover:bg-[#E7EAED] dark:hover:bg-[#393939] transition-colors">
-        <div className="w-full max-w-[120px] md:max-w-[240px] lg:max-w-[300px] pr-4">
+        <div className="w-full max-w-[160px] md:max-w-[240px] lg:max-w-[300px] pr-4">
           {thread.account.name || thread.account.id}
         </div>
         <div className="flex-1 font-mono">
