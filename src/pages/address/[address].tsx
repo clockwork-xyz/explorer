@@ -61,19 +61,18 @@ export const AddressSignaturesTable = () => {
                       >
                         <CopyButton valueToCopy={signatureInfo.signature} />
                         <Link
+                          passHref
                           href={getExplorerLink(
                             signatureInfo.signature,
                             cluster.network
                           )}
                         >
-                          <a>
-                            <div className="flex items-center space-x-2">
-                              <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
-                                {signatureInfo.signature.slice(0, 45) + "..."}
-                              </p>
-                              {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
-                            </div>
-                          </a>
+                          <div className="flex items-center space-x-2">
+                            <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
+                              {signatureInfo.signature.slice(0, 45) + "..."}
+                            </p>
+                            {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
+                          </div>
                         </Link>
                       </span>
                     </td>
@@ -84,19 +83,18 @@ export const AddressSignaturesTable = () => {
                       >
                         <CopyButton valueToCopy={signatureInfo.slot} />
                         <Link
+                          passHref
                           href={getExplorerBlockLink(
                             signatureInfo.slot,
                             cluster.network
                           )}
                         >
-                          <a>
-                            <div className="flex items-center space-x-2">
-                              <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
-                                {formatSlotNumber(signatureInfo.slot)}
-                              </p>
-                              {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
-                            </div>
-                          </a>
+                          <div className="flex items-center space-x-2">
+                            <p className="space-x-2   hover:underline font-light font-['IBM_Plex_Mono']">
+                              {formatSlotNumber(signatureInfo.slot)}
+                            </p>
+                            {/* <ArrowUpIcon className="h-4 w-4 cursor-pointer rotate-45" /> */}
+                          </div>
                         </Link>
                       </span>
                     </td>

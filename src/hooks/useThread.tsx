@@ -1,4 +1,4 @@
-import { useClockworkProgram } from "contexts/ThreadProgramProvider";
+import { useThreadProgram } from "contexts/ClockworkProgramsContext";
 import { useCallback, useEffect, useState } from "react";
 import { Thread } from "@clockwork-xyz/sdk";
 import { PublicKey } from "@solana/web3.js";
@@ -11,7 +11,7 @@ export type ThreadsHookState = {
 };
 
 export const useThread = (address: string) => {
-  const program = useClockworkProgram();
+  const program = useThreadProgram();
 
   const fetchThreadCallback = useCallback(async () => {
     setThreadsState((prev) => ({

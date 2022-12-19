@@ -1,8 +1,7 @@
 import { FC, ReactNode } from "react";
 import { AutoConnectProvider } from "./AutoConnectProvider";
 import { AnchorProviderProvider } from "./AnchorProvider";
-import { ThreadProgramProvider } from "./ThreadProgramProvider";
-import { ClockworksProvider } from "./ClockworksContext";
+import { ClockworkProgramsProvider } from "./ClockworkProgramsContext";
 import { SolanaProvider } from "./SolanaContext";
 import { SearchProvider } from "./SearchContext";
 
@@ -11,11 +10,9 @@ export const ContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     <SolanaProvider>
       <AutoConnectProvider>
         <AnchorProviderProvider>
-          <ClockworksProvider>
-            <ThreadProgramProvider>
-              <SearchProvider>{children}</SearchProvider>
-            </ThreadProgramProvider>
-          </ClockworksProvider>
+          <ClockworkProgramsProvider>
+            <SearchProvider>{children}</SearchProvider>
+          </ClockworkProgramsProvider>
         </AnchorProviderProvider>
       </AutoConnectProvider>
     </SolanaProvider>

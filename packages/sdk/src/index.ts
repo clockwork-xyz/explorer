@@ -1,5 +1,4 @@
-export * from "./anchor/addresses";
-export * from "./anchor/types";
+export * from "./programs";
 export * from "./models/types";
 export * from "./utils/constants";
 export * from "./utils/explorer";
