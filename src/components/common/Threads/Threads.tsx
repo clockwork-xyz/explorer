@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 
 import { PaginationButton } from "../Pagination/PaginationButton";
-import { PrimaryButton } from "../Button";
+// import { PrimaryButton } from "../Button";
 import { Modal } from "../Modal";
 import {
   HelloWorldThread,
@@ -18,6 +18,7 @@ import {
 } from "../CreateQueue";
 import Tabs from "../CreateQueue/Tabs";
 import { shortenAddress } from "@clockwork-xyz/sdk";
+import InternalLink from "../Button/InternalLink";
 
 const exampleThreads = [
   <HelloWorldThread key={0} />,
@@ -86,12 +87,13 @@ export const Threads = () => {
               <h2 className="text-2xl text-[#0E1114] dark:text-white font-semibold font-header leading-5">
                 Threads
               </h2>
-              <PrimaryButton
+              <InternalLink href="/automation">New Automation</InternalLink>
+              {/* <PrimaryButton
                 onClick={() => setOpenCreateQueueModal(true)}
                 className="pt-3 pb-3"
               >
                 New Automation
-              </PrimaryButton>
+              </PrimaryButton> */}
             </div>
 
             <input
@@ -125,7 +127,7 @@ export const Threads = () => {
                           query: router.query,
                         }}
                       >
-                          <QueueListItem thread={thread} />
+                        <QueueListItem thread={thread} />
                       </Link>
                     </li>
                   ))}
