@@ -32,7 +32,10 @@ export const WalletButton: FC<WalletButtonProps> = ({
         }
         className="bg-black-100 dark:bg-white text-sm dark:text-black-100 text-white align-middle justify-center"
       >
-        <div className="md:block hidden px-10 py-3">
+        <div
+          className="md:block hidden px-10 py-3"
+          data-cy="connect-wallet-btn"
+        >
           {wallet.connected
             ? shortenAddress(wallet.publicKey!.toString())
             : "Connect wallet"}

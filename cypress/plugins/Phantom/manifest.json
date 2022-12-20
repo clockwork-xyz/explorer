@@ -1,0 +1,60 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "Phantom",
+  "description": "A crypto wallet reimagined for DeFi & NFTs",
+  "version": "22.12.9.4",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Phantom"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png",
+    "512": "icon512.png"
+  },
+  "content_security_policy": "script-src 'self' 'wasm-eval'; object-src 'self'",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    "fonts/*",
+    "content_script/inpage.js"
+  ],
+  "background": {
+    "scripts": [
+      "background/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "file://*/*",
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content_script/content_script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Alt+Shift+P",
+        "mac": "Alt+Shift+P",
+        "chromeos": "Alt+Shift+P",
+        "linux": "Alt+Shift+P"
+      }
+    }
+  }
+}
