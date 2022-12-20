@@ -8,13 +8,13 @@ const Automation: NextPage = () => {
   const { connected } = useWallet();
   const router = useRouter();
 
-  if (!connected) {
+  if (!connected && typeof window !== "undefined") {
     router.push("/");
   }
 
   return (
     <>
-      <div>
+      <div className="flex">
         <div className="w-6/12">
           <InstructionsForm />
         </div>
