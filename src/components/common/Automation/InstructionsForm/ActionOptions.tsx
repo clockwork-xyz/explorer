@@ -2,16 +2,16 @@ import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { classNames } from "@clockwork-xyz/sdk";
-import { TriggerOptionsData } from "../constants";
+import { InstructionOptionsData } from "../constants";
 
-export default function TriggerOptions({ selected, setSelected }) {
+export default function ActionOptions({ selected, setSelected }) {
   return (
     <>
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
             <Listbox.Label className="block text-sm font-medium text-black dark:text-white">
-              Triggers
+              Instructions
             </Listbox.Label>
             <div className="relative mt-1 mb-5">
               <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white dark:bg-gray-200 py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
@@ -34,9 +34,9 @@ export default function TriggerOptions({ selected, setSelected }) {
                 leaveTo="opacity-0"
               >
                 <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white dark:bg-gray-200 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {TriggerOptionsData.map((person) => (
+                  {InstructionOptionsData.map((instructionOption) => (
                     <Listbox.Option
-                      key={person.id}
+                      key={instructionOption.id}
                       className={({ active }) =>
                         classNames(
                           active
@@ -45,7 +45,7 @@ export default function TriggerOptions({ selected, setSelected }) {
                           "relative cursor-default select-none py-2 pl-3 pr-9"
                         )
                       }
-                      value={person}
+                      value={instructionOption}
                     >
                       {({ selected, active }) => (
                         <>
@@ -56,7 +56,7 @@ export default function TriggerOptions({ selected, setSelected }) {
                                 "ml-3 block truncate"
                               )}
                             >
-                              {person.name}
+                              {instructionOption.name}
                             </span>
                           </div>
 
