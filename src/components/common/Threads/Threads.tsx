@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 
 import { PaginationButton } from "../Pagination/PaginationButton";
-// import { PrimaryButton } from "../Button";
 import { Modal } from "../Modal";
 import {
   HelloWorldThread,
@@ -88,12 +87,6 @@ export const Threads = () => {
                 Threads
               </h2>
               <InternalLink href="/automation">New Automation</InternalLink>
-              {/* <PrimaryButton
-                onClick={() => setOpenCreateQueueModal(true)}
-                className="pt-3 pb-3"
-              >
-                New Automation
-              </PrimaryButton> */}
             </div>
 
             <input

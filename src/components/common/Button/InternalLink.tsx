@@ -15,7 +15,7 @@ export default function InternalLink({
   return (
     <Link
       href={href}
-      className={`border border-black-100 dark:border-white text-sm text-black-100 dark:text-white align-middle justify-center pt-5 pb-5 pr-10 pl-10 ${className}`}
+      className={`bg-black-100 dark:bg-white text-sm dark:text-black-100 text-white align-middle justify-center py-3 px-10 ${className}`}
     >
       {children}
     </Link>
