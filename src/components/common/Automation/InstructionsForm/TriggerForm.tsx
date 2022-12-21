@@ -1,12 +1,22 @@
+import { Input } from "components/common/Input";
 import React from "react";
-import { TriggerNames } from "../constants";
+import { TriggerNames, TriggerOptionType } from "../constants";
 
-export default function TriggerForm({ trigger }) {
+type TriggerFormProps = {
+  trigger: TriggerOptionType;
+};
+
+export default function TriggerForm({ trigger }: TriggerFormProps) {
   return (
-    <div className="mb-5">
+    <div className="mb-20">
       {trigger.id === TriggerNames.ACCOUNT && (
         <>
-          <input type="text" placeholder="address here" name="trigger" />
+          <Input placeholder="Input address here" name={trigger.name} />
+        </>
+      )}
+      {trigger.id === TriggerNames.CRON && (
+        <>
+          <Input placeholder="Input cron here" name={trigger.name} />
         </>
       )}
     </div>

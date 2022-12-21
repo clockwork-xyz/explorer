@@ -1,4 +1,9 @@
-export const TriggerOptionsData = [
+export type TriggerOptionType = {
+  id: number;
+  name: string;
+};
+
+export const TriggerOptionsData: TriggerOptionType[] = [
   {
     id: 1,
     name: "On-Demand",
