@@ -3,6 +3,7 @@ import { TriggerOptionsData, InstructionOptionsData } from "../constants";
 import { useState } from "react";
 import TriggerOptions from "./TriggerOptions";
 import ActionOptions from "./ActionOptions";
+import TriggerForm from "./TriggerForm";
 
 export default function InstructionsForm() {
   const [selectedTrigger, setSelectedTrigger] = useState(TriggerOptionsData[3]);
@@ -17,6 +18,7 @@ export default function InstructionsForm() {
         selected={selectedTrigger}
         setSelected={setSelectedTrigger}
       />
+      <TriggerForm trigger={selectedTrigger} />
       <ActionOptions
         selected={selectedInstruction}
         setSelected={setSelectedInstruction}

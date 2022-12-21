@@ -25,6 +25,15 @@ export const TriggerOptionsData = [
   },
 ];
 
+export const TriggerNames = {
+  ON_DEMAND: 1,
+  CRON: 2,
+  ACCOUNT: 3,
+  PYTH_FEED: 4,
+  SWITCHBOARD_FEED: 5,
+  CLOCKWORK_FEED: 6,
+};
+
 export const InstructionOptionsData = [
   { id: 1, name: "Require (eq, gt, gte, lt, lte)" },
   { id: 2, name: "Token transfer" },
