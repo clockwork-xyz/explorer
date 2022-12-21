@@ -4,23 +4,23 @@ export const TriggerOptions = [
     name: "On-Demand",
   },
   {
-    id: 1,
+    id: 2,
     name: "Cron",
   },
   {
-    id: 1,
+    id: 3,
     name: "Account",
   },
   {
-    id: 1,
+    id: 4,
     name: "Pyth feed",
   },
   {
-    id: 1,
+    id: 5,
     name: "Switchboard feed",
   },
   {
-    id: 1,
+    id: 6,
     name: "Clockwork feed",
   },
 ];
