@@ -1,16 +1,12 @@
-import React from "react";
-import { TriggerOptions } from "./constants";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { classNames } from "@clockwork-xyz/sdk";
+import { TriggerOptionsData } from "../constants";
 
-export default function InstructionsForm() {
-  const [selected, setSelected] = useState(TriggerOptions[3]);
-
+export default function TriggerOptions({ selected, setSelected }) {
   return (
-    <div>
-      <h2 className="mb-10">Trigger &amp; Actions</h2>
+    <>
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
@@ -38,7 +34,7 @@ export default function InstructionsForm() {
                 leaveTo="opacity-0"
               >
                 <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white dark:bg-gray-200 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {TriggerOptions.map((person) => (
+                  {TriggerOptionsData.map((person) => (
                     <Listbox.Option
                       key={person.id}
                       className={({ active }) =>
@@ -89,6 +85,6 @@ export default function InstructionsForm() {
           </>
         )}
       </Listbox>
-    </div>
+    </>
   );
 }

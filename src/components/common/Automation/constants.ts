@@ -1,4 +1,4 @@
-export const TriggerOptions = [
+export const TriggerOptionsData = [
   {
     id: 1,
     name: "On-Demand",
@@ -26,7 +26,7 @@ export const TriggerOptions = [
 ];
 
 export const InstructionOptions = [
-  "Require (eq, gt, gte, lt, lte) ",
+  "Require (eq, gt, gte, lt, lte)",
   "Token transfer",
   "Token mint",
   "Serum swap",
