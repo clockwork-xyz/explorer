@@ -12,6 +12,15 @@ export default function InstructionsForm() {
     InstructionOptionsData[3]
   );
 
+  const [instructions, setInstructions] = useState([]);
+
+  const handleAddMoreAction = () => {
+    const instructionsCopy = [...instructions];
+    instructionsCopy.push(selectedInstruction);
+
+    setInstructions(instructionsCopy);
+  };
+
   return (
     <div>
       <h2 className="mb-10">Trigger &amp; Actions</h2>
@@ -24,7 +33,9 @@ export default function InstructionsForm() {
         selected={selectedInstruction}
         setSelected={setSelectedInstruction}
       />
-      <DefaultButton>Add More Action</DefaultButton>
+      <DefaultButton onClick={handleAddMoreAction}>
+        Add More Action
+      </DefaultButton>
     </div>
   );
 }
