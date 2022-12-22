@@ -3,6 +3,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { useRouter } from "next/router";
 import InstructionsForm from "components/common/Automation/InstructionsForm";
 import SimulationLogs from "components/common/Automation/SimulationLogs";
+import { DefaultButton } from "components/common/Button/Default";
 
 const Automation: NextPage = () => {
   const { connected } = useWallet();
@@ -21,6 +22,9 @@ const Automation: NextPage = () => {
         <div className="w-6/12">
           <SimulationLogs />
         </div>
+      </div>
+      <div className="mt-10 text-center">
+        <DefaultButton>Start Automation</DefaultButton>
       </div>
     </>
   );
