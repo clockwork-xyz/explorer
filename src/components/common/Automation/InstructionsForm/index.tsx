@@ -1,11 +1,14 @@
-import React from "react";
-import { TriggerOptionsData, InstructionOptionsData } from "../constants";
-import { useState } from "react";
+import React, { useState } from "react";
 import TriggerOptions from "./TriggerOptions";
 import ActionOptions from "./ActionOptions";
 import TriggerForm from "./TriggerForm";
-import { DefaultButton } from "components/common/Button/Default";
 import ActionsList from "./ActionsList";
+import { DefaultButton } from "components/common/Button/Default";
+import {
+  TriggerOptionsData,
+  InstructionOptionsData,
+  TriggerOptionType,
+} from "../constants";
 
 export type InstructionType = {
   id: number;
@@ -13,14 +16,14 @@ export type InstructionType = {
 };
 
 export default function InstructionsForm() {
-  const [selectedTrigger, setSelectedTrigger] = useState(TriggerOptionsData[3]);
+  const [selectedTrigger, setSelectedTrigger] = useState<TriggerOptionType>(
+    TriggerOptionsData[3]
+  );
   const [selectedInstruction, setSelectedInstruction] = useState(
     InstructionOptionsData[3]
   );
 
   const [instructions, setInstructions] = useState<InstructionType[]>([]);
-
-  console.log(instructions);
 
   const handleAddMoreAction = () => {
     const instructionsCopy = [...instructions];

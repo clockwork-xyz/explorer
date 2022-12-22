@@ -2,9 +2,16 @@ import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { classNames } from "@clockwork-xyz/sdk";
-import { TriggerOptionsData } from "../constants";
+import { TriggerOptionsData, TriggerOptionType } from "../constants";
 
-export default function TriggerOptions({ selected, setSelected }) {
+type TriggerOptionsPropType = {
+  selected: TriggerOptionType;
+  setSelected: (option: TriggerOptionType) => void;
+};
+export default function TriggerOptions({
+  selected,
+  setSelected,
+}: TriggerOptionsPropType) {
   return (
     <>
       <Listbox value={selected} onChange={setSelected}>
