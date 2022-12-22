@@ -5,6 +5,12 @@ import TriggerOptions from "./TriggerOptions";
 import ActionOptions from "./ActionOptions";
 import TriggerForm from "./TriggerForm";
 import { DefaultButton } from "components/common/Button/Default";
+import ActionsList from "./ActionsList";
+
+export type InstructionType = {
+  id: number;
+  name: string;
+};
 
 export default function InstructionsForm() {
   const [selectedTrigger, setSelectedTrigger] = useState(TriggerOptionsData[3]);
@@ -12,7 +18,9 @@ export default function InstructionsForm() {
     InstructionOptionsData[3]
   );
 
-  const [instructions, setInstructions] = useState([]);
+  const [instructions, setInstructions] = useState<InstructionType[]>([]);
+
+  console.log(instructions);
 
   const handleAddMoreAction = () => {
     const instructionsCopy = [...instructions];
@@ -29,6 +37,10 @@ export default function InstructionsForm() {
         setSelected={setSelectedTrigger}
       />
       <TriggerForm trigger={selectedTrigger} />
+      <ActionsList
+        instructions={instructions}
+        setInstructions={setInstructions}
+      />
       <ActionOptions
         selected={selectedInstruction}
         setSelected={setSelectedInstruction}
