@@ -17,12 +17,13 @@ export type InstructionType = {
 
 export default function InstructionsForm() {
   const [selectedTrigger, setSelectedTrigger] = useState<TriggerOptionType>(
-    TriggerOptionsData[3]
+    TriggerOptionsData[0]
   );
   const [selectedInstruction, setSelectedInstruction] = useState(
     InstructionOptionsData[3]
   );
 
+  const [trigegerData, setTriggerData] = useState<string>();
   const [instructions, setInstructions] = useState<InstructionType[]>([]);
 
   const handleAddMoreAction = () => {
@@ -39,7 +40,7 @@ export default function InstructionsForm() {
         selected={selectedTrigger}
         setSelected={setSelectedTrigger}
       />
-      <TriggerForm trigger={selectedTrigger} />
+      <TriggerForm trigger={selectedTrigger} setTriggerData={setTriggerData} />
       <ActionsList
         instructions={instructions}
         setInstructions={setInstructions}
